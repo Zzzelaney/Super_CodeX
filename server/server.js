@@ -1,10 +1,9 @@
-import express from 'express'
+import express from 'express'https://github.com/Zzzelaney/Super_CodeX/blob/main/server/server.js
 import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
 
 dotenv.config()
-console.log(process.env.OPENAI_API_KEY)
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -44,5 +43,6 @@ app.post('/', async (req, res) => {
     res.status(500).send(error || 'Something went wrong');
   }
 })
-
 app.listen(5000, () => console.log('AI server started on http://localhost:5000'))
+
+
