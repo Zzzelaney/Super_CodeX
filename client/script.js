@@ -86,7 +86,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://super-codex.onrender.com', {
+    const response = await fetch('https://super-codex.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -95,26 +95,26 @@ const handleSubmit = async (e) => {
             prompt: data.get('prompt')
         })
     })
- 
-    clearInterval(loadInterval);
-    messageDiv.innerHTML = '';
+
+    clearInterval(loadInterval)
+    messageDiv.innerHTML = " "
 
     if (response.ok) {
         const data = await response.json();
-        const parsedData = data.bot.trim(); // trims any trailing spaces/'\n' 
+        const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
 
-        typeText(messageDiv, parsedData);
+        typeText(messageDiv, parsedData)
     } else {
-        const err = await response.text();
+        const err = await response.text()
 
-        messageDiv.innerHTML = "Something went wrong";
-        alert(err);
+        messageDiv.innerHTML = "Something went wrong"
+        alert(err)
     }
 }
 
-form.addEventListener('submit', handleSubmit);
+form.addEventListener('submit', handleSubmit)
 form.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
-        handleSubmit(e);
+        handleSubmit(e)
     }
 })

@@ -1,9 +1,10 @@
-import express from 'express'https://github.com/Zzzelaney/Super_CodeX/blob/main/server/server.js
+import express from 'express'
 import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
 
 dotenv.config()
+
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
